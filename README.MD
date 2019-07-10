@@ -9,3 +9,7 @@
 
 ### Client
 - using [ES6 modules](https://v8.dev/features/modules) and DOM api
+
+
+### Demo
+- Deployed on [Heroku](https://kovaja-naive-crowd.herokuapp.com/)
