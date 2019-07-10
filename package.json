@@ -1,0 +1,23 @@
+{
+  "name": "naive-crowd",
+  "version": "0.0.1",
+  "description": "Playing with idea of crowd modelling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovaja/naive-crowd.git"
+  },
+  "keywords": [
+    "javascript",
+    "es6"
+  ],
+  "author": "kovaja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kovaja/naive-crowd/issues"
+  },
+  "homepage": "https://github.com/kovaja/naive-crowd#readme"
+}
