@@ -1,40 +1,32 @@
+/**
+ * Code inspired by https://developer.mozilla.org/en-US/docs/Learn/Server-side/Node_server_without_framework#Example
+ */
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const mimeTypes = {
+const MIME_TYPES = {
   '.html': 'text/html',
   '.js': 'text/javascript',
   '.css': 'text/css'
-  // '.json': 'application/json',
-  // '.png': 'image/png',
-  // '.jpg': 'image/jpg',
-  // '.gif': 'image/gif',
-  // '.wav': 'audio/wav',
-  // '.mp4': 'video/mp4',
-  // '.woff': 'application/font-woff',
-  // '.ttf': 'application/font-ttf',
-  // '.eot': 'application/vnd.ms-fontobject',
-  // '.otf': 'application/font-otf',
-  // '.svg': 'application/image/svg+xml',
-  // '.wasm': 'application/wasm'
 };
 
 const ASSET_PATH = './client/'
-const PORT = 3000 || 5000;
+const PORT = process.env.PORT || 3000;
 
-function handleRequest (request, response) {
-  console.log('request ', request.url);
-
-  let requestUrl = request.url;
+function normalizeRequestUrl(requestUrl) {
   if (requestUrl === '/') {
-    requestUrl = '/index.html';
+    return '/index.html';
   }
 
-  const filePath = ASSET_PATH + requestUrl;
+  return requestUrl;
+}
 
+function handleRequest (request, response) {
+  const filePath = ASSET_PATH + normalizeRequestUrl(request.url);
   const extname = String(path.extname(filePath)).toLowerCase();
-  const contentType = mimeTypes[extname] || 'application/octet-stream';
+  const contentType = MIME_TYPES[extname] || 'application/octet-stream';
 
   function onFileRead(error, content) {
     if (error) {
