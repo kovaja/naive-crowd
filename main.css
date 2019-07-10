@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+}
+
+.main-container {
+  margin: 15px;
+  text-align: center;
+}
+
+.main-container canvas {
+  border: 1px solid;
+}
+
+.main-container .tile {
+  border: 1px solid red;
+  display: inline-block;
+  margin: 0;
+}
+
+.main-container .tile.eol{
+  border-right-color: green;
+}
+
+.main-controls {
+  text-align: center;
+}
