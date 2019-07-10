@@ -49,6 +49,7 @@ class Game {
   updateState() {
     let tile, coordinates, i, j, nextTile,
       nextAddress, places;
+
     const newTiles = {};
 
     Object.keys(this.state.tiles)
@@ -112,6 +113,11 @@ class Game {
           isParticle: true
         };
       });
+
+    if (Object.keys(newTiles).length === 0) {
+      this.stopGame();
+      return;
+    }
 
     this.state.tiles = Object.assign({}, this.state.tiles, newTiles);
   }
